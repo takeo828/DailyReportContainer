@@ -24,7 +24,6 @@ ENV TZ Asia/Tokyo
 RUN apt -y install apache2
 RUN a2enmod rewrite
 RUN a2enmod ssl
-COPY login.html /var/www/html
 RUN a2ensite default-ssl
 RUN sed -i -e "s/^<\/VirtualHost>/RewriteEngine on/" /etc/apache2/sites-available/000-default.conf
 RUN echo 'RewriteCond %{HTTPS} off' >> /etc/apache2/sites-available/000-default.conf
